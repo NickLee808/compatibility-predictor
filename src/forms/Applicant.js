@@ -42,7 +42,7 @@ class Applicant extends Component {
   render(){
     return (
       <div className="Applicant-component">
-        <h2>Applicant</h2>
+        <h2>Add Applicants</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="Applicant-name">
             Applicant name:

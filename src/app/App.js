@@ -93,7 +93,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Compatibility Predictor</h1>
+          <h2 className="App-title">Compatibility Predictor</h2>
         </header>
         <div className="App-body">
           <Team updateAppTeam={this.teamUpdate}/>

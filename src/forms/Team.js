@@ -42,7 +42,7 @@ class Team extends Component {
   render(){
     return (
       <div className="Team-component">
-        <h2>Team</h2>
+        <h2>Add Team Members</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="Team-name">
             Team member name:
