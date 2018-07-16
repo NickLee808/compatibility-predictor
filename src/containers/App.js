@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import Team from '../components/Team';
 import Applicant from '../components/Applicant';
+import logo from '../assets/logo_260@2x.png';
 
 class App extends Component {
   constructor(props){
@@ -91,6 +92,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Compatibility Predictor</h1>
         </header>
         <div className="App-body">
