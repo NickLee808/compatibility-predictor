@@ -38,10 +38,24 @@ class App extends Component {
       teamChr.push(this.state.team[i].attributes.charisma);
     }
 
-    console.log('teamStr: ', teamStr);
-    console.log('teamDex: ', teamDex);
-    console.log('teamInt: ', teamInt);
-    console.log('teamChr: ', teamChr);
+    function arrAverager(arr){
+      let total = 0;
+      for(let i=0; i<arr.length; i++){
+        total += parseInt(arr[i]);
+      }
+      let avg = total / arr.length;
+      return avg;
+    }
+
+    let teamAvg = {
+      strength: arrAverager(teamStr),
+      dexterity: arrAverager(teamDex),
+      intelligence: arrAverager(teamInt),
+      charisma: arrAverager(teamChr)
+    }
+
+    console.log(teamAvg);
+
   }
 
   render() {
