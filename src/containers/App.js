@@ -10,8 +10,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Compatibility Predictor</h1>
         </header>
-        <p className="App-intro">
-        </p>
+        <div className="App-body">
+          <Team/>
+          <Applicant/>
+        </div>
       </div>
     );
   }
