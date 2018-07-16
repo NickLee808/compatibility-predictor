@@ -99,6 +99,17 @@ class App extends Component {
           <form onSubmit={this.calculator}>
             <input type="submit" value="Calculate Scores"/>
           </form>
+          <h1>Applicant Compatibility Results: </h1>
+          <div className="All-results">{this.state.scoredApplicants.map(
+            function(applicantResult){
+              return(
+                <div className="Results">
+                  <br/><b>Name: {applicantResult.name}</b>
+                  <br/>Score: {applicantResult.score}
+                </div>
+              )
+            }  
+          )}</div>
         </div>
       </div>
     );
