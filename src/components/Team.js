@@ -34,6 +34,9 @@ class Team extends Component {
     this.setState({
       team: newTeam
     });
+
+    this.props.updateAppTeam(newTeam);
+
   }
 
   render(){

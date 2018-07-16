@@ -37,7 +37,6 @@ class Applicant extends Component {
   }
 
   render(){
-    console.log(this.state);
     return (
       <div className="Applicant-component">
         <h2>Applicant</h2>
