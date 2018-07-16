@@ -7,6 +7,7 @@ class Team extends Component {
       team: []
     };
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(event){
@@ -15,11 +16,31 @@ class Team extends Component {
     });
   };
 
+  handleSubmit(event){
+    event.preventDefault();
+
+    let newPerson = {
+      name: this.state.name,
+      attributes: {
+        strength: this.state.strength,
+        dexterity: this.state.dexterity,
+        intelligence: this.state.intelligence,
+        charisma: this.state.charisma
+      }
+    }
+
+    let newTeam = this.state.team.concat(newPerson);
+
+    this.setState({
+      team: newTeam
+    });
+  }
+
   render(){
     return (
       <div className="Team-component">
         <h2>Team</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="Team-name">
             Team member name:
             <input type="text" name="name" onChange={this.handleInput}/>
@@ -84,6 +105,22 @@ class Team extends Component {
           </div>
           <input type="submit" value="Submit Team Member"/>
         </form>
+        <div className="Team-list">
+          <h2>Current Team:</h2>
+          <div>{this.state.team.map(
+            function(person){
+              return (
+                <div className="results">
+                  <br/><b>Name: {person.name}</b>
+                  <br/>Strength: {person.attributes.strength}
+                  <br/>Dexterity: {person.attributes.dexterity}
+                  <br/>Intelligence: {person.attributes.intelligence}
+                  <br/>Charisma: {person.attributes.charisma}
+                </div>
+              );
+            }
+          )}</div>
+        </div>
       </div>
     )
   }
