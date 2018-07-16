@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 
 class Team extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      team: []
+    };
+    this.handleInput = this.handleInput.bind(this);
+  }
+
+  handleInput(event){
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   render(){
+    console.log(this.state);
     return (
       <div className="Team-component">
         <h2>Team</h2>
         <form>
           <div className="Team-name">
             Team member name:
-            <input type="text" name="name"/>
+            <input type="text" name="name" onChange={this.handleInput}/>
           </div>
           <div className="Team-attributes">
             Strength:
-            <select name="strength">
+            <select name="strength" onChange={this.handleInput}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -26,7 +41,7 @@ class Team extends Component {
               <option value="10">10</option>
             </select>
             Dexterity:
-            <select name="dexterity">
+            <select name="dexterity" onChange={this.handleInput}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -40,7 +55,7 @@ class Team extends Component {
               <option value="10">10</option>
             </select>
             Intelligence:
-            <select name="intelligence">
+            <select name="intelligence" onChange={this.handleInput}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -54,7 +69,7 @@ class Team extends Component {
               <option value="10">10</option>
             </select>
             Charisma:
-            <select name="charisma">
+            <select name="charisma" onChange={this.handleInput}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
