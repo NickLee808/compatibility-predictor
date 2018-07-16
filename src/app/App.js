@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Team from '../components/Team';
-import Applicant from '../components/Applicant';
+import Team from '../forms/Team';
+import Applicant from '../forms/Applicant';
 import logo from '../assets/logo_260@2x.png';
 
 class App extends Component {
