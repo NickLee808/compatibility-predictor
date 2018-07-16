@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Team from '../components/Team';
+import Applicant from '../components/Applicant';
 
 class App extends Component {
   render() {
