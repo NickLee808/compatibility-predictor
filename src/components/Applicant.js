@@ -34,6 +34,9 @@ class Applicant extends Component {
     this.setState({
       applicants: newApplicants
     });
+  
+    this.props.updateAppApplicants(newApplicants);
+  
   }
 
   render(){

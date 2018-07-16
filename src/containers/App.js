@@ -11,14 +11,19 @@ class App extends Component {
       applicants: []      
     };
     this.teamUpdate = this.teamUpdate.bind(this);
+    this.applicantUpdate = this.applicantUpdate.bind(this);
   }
 
   teamUpdate(team){
     this.setState({team});
   }
 
+  applicantUpdate(applicants){
+    this.setState({applicants});
+  }
+
   render() {
-    console.log(this.state.team);
+    console.log('this.state: ', this.state);
     return (
       <div className="App">
         <header className="App-header">
@@ -26,7 +31,7 @@ class App extends Component {
         </header>
         <div className="App-body">
           <Team updateAppTeam={this.teamUpdate}/>
-          <Applicant/>
+          <Applicant updateAppApplicants={this.applicantUpdate}/>
         </div>
       </div>
     );
