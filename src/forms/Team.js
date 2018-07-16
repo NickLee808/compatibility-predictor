@@ -113,7 +113,7 @@ class Team extends Component {
           <div>{this.state.team.map(
             function(person){
               return (
-                <div className="results">
+                <div className="Results">
                   <br/><b>Name: {person.name}</b>
                   <br/>Strength: {person.attributes.strength}
                   <br/>Dexterity: {person.attributes.dexterity}

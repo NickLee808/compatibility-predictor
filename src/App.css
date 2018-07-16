@@ -16,6 +16,20 @@
   margin: 0;
 }
 
-.App-intro {
-  font-size: large;
+select {
+  margin-right: 1em;
+}
+
+input {
+  margin-top: 1em;
+}
+
+h2 {
+  margin-bottom: 0em;
+}
+
+.Results {
+  border: 1px solid black;
+  padding-bottom: 1em;
+  margin: 0em 5em 1em 5em;
 }
