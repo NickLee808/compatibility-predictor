@@ -59,13 +59,7 @@ class App extends Component {
     let scoredApplicants = [];
 
     for (let j=0; j<this.state.applicants.length; j++){
-      let absolutes = {};
       let applicantAvgs = 0;
-
-      {/*absolutes.strength = 1 - Math.abs(teamAvg.strength - this.state.applicants[j].attributes.strength) / 10;
-      absolutes.dexterity = 1 - Math.abs(teamAvg.dexterity - this.state.applicants[j].attributes.dexterity) / 10;
-      absolutes.intelligence = 1 - Math.abs(teamAvg.intelligence - this.state.applicants[j].attributes.intelligence) / 10;
-      absolutes.charisma = 1 - Math.abs(teamAvg.charisma - this.state.applicants[j].attributes.charisma) / 10;*/}
 
       applicantAvgs += 1 - Math.abs(teamAvg.strength - this.state.applicants[j].attributes.strength) / 10;
       applicantAvgs += 1 - Math.abs(teamAvg.dexterity - this.state.applicants[j].attributes.dexterity) / 10;
