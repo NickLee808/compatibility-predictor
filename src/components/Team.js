@@ -16,7 +16,6 @@ class Team extends Component {
   };
 
   render(){
-    console.log(this.state);
     return (
       <div className="Team-component">
         <h2>Team</h2>
