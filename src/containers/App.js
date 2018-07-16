@@ -12,6 +12,7 @@ class App extends Component {
     };
     this.teamUpdate = this.teamUpdate.bind(this);
     this.applicantUpdate = this.applicantUpdate.bind(this);
+    this.calculator = this.calculator.bind(this);
   }
 
   teamUpdate(team){
@@ -22,8 +23,28 @@ class App extends Component {
     this.setState({applicants});
   }
 
+  calculator(event){
+    event.preventDefault();
+
+    let teamStr = [];
+    let teamDex = [];
+    let teamInt = [];
+    let teamChr = [];
+
+    for (let i=0; i<this.state.team.length; i++){
+      teamStr.push(this.state.team[i].attributes.strength);
+      teamDex.push(this.state.team[i].attributes.dexterity);
+      teamInt.push(this.state.team[i].attributes.intelligence);
+      teamChr.push(this.state.team[i].attributes.charisma);
+    }
+
+    console.log('teamStr: ', teamStr);
+    console.log('teamDex: ', teamDex);
+    console.log('teamInt: ', teamInt);
+    console.log('teamChr: ', teamChr);
+  }
+
   render() {
-    console.log('this.state: ', this.state);
     return (
       <div className="App">
         <header className="App-header">
@@ -32,6 +53,9 @@ class App extends Component {
         <div className="App-body">
           <Team updateAppTeam={this.teamUpdate}/>
           <Applicant updateAppApplicants={this.applicantUpdate}/>
+          <form onSubmit={this.calculator}>
+            <input type="submit" value="Calculate Scores"/>
+          </form>
         </div>
       </div>
     );
