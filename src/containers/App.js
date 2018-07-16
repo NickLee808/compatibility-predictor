@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
       team: [],
-      applicants: []      
+      applicants: [],
+      scoredApplicants: []
     };
     this.teamUpdate = this.teamUpdate.bind(this);
     this.applicantUpdate = this.applicantUpdate.bind(this);
@@ -59,14 +60,30 @@ class App extends Component {
     for (let j=0; j<this.state.applicants.length; j++){
       let absolutes = {};
       let applicantAvgs = 0;
-      absolutes.strength = 1 - Math.abs(teamAvg.strength - this.state.applicants[j].attributes.strength) / 10;
+
+      {/*absolutes.strength = 1 - Math.abs(teamAvg.strength - this.state.applicants[j].attributes.strength) / 10;
       absolutes.dexterity = 1 - Math.abs(teamAvg.dexterity - this.state.applicants[j].attributes.dexterity) / 10;
       absolutes.intelligence = 1 - Math.abs(teamAvg.intelligence - this.state.applicants[j].attributes.intelligence) / 10;
-      absolutes.charisma = 1 - Math.abs(teamAvg.charisma - this.state.applicants[j].attributes.charisma) / 10;
-      scoredApplicants.push(absolutes);
+      absolutes.charisma = 1 - Math.abs(teamAvg.charisma - this.state.applicants[j].attributes.charisma) / 10;*/}
+
+      applicantAvgs += 1 - Math.abs(teamAvg.strength - this.state.applicants[j].attributes.strength) / 10;
+      applicantAvgs += 1 - Math.abs(teamAvg.dexterity - this.state.applicants[j].attributes.dexterity) / 10;
+      applicantAvgs += 1 - Math.abs(teamAvg.intelligence - this.state.applicants[j].attributes.intelligence) / 10;
+      applicantAvgs += 1 - Math.abs(teamAvg.charisma - this.state.applicants[j].attributes.charisma) / 10;
+
+      let score = applicantAvgs / 4;
+
+      let applicant = {
+        name: this.state.applicants[j].name,
+        score
+      }
+
+      scoredApplicants.push(applicant);
     }
 
     console.log(scoredApplicants);
+
+    this.setState({scoredApplicants});
 
   }
 
