@@ -7,6 +7,7 @@ class Applicant extends Component {
       applicants: []
     };
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(event){
@@ -15,12 +16,32 @@ class Applicant extends Component {
     });
   };
 
+  handleSubmit(event){
+    event.preventDefault();
+
+    let newPerson = {
+      name: this.state.name,
+      attributes: {
+        strength: this.state.strength,
+        dexterity: this.state.dexterity,
+        intelligence: this.state.intelligence,
+        charisma: this.state.charisma
+      }
+    }
+
+    let newApplicants = this.state.applicants.concat(newPerson);
+
+    this.setState({
+      applicants: newApplicants
+    });
+  }
+
   render(){
     console.log(this.state);
     return (
       <div className="Applicant-component">
         <h2>Applicant</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="Applicant-name">
             Applicant name:
             <input type="text" name="name" onChange={this.handleInput}/>
@@ -85,6 +106,22 @@ class Applicant extends Component {
           </div>
           <input type="submit" value="Submit Applicant"/>
         </form>
+        <div className="Applicant-list">
+          <h2>Current Applicants:</h2>
+          <div>{this.state.applicants.map(
+            function(person){
+              return (
+                <div className="results">
+                  <br/><b>Name: {person.name}</b>
+                  <br/>Strength: {person.attributes.strength}
+                  <br/>Dexterity: {person.attributes.dexterity}
+                  <br/>Intelligence: {person.attributes.intelligence}
+                  <br/>Charisma: {person.attributes.charisma}
+                </div>
+              )
+            }
+          )}</div>
+        </div>
       </div>
     )
   }
